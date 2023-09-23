@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>vue2-3 | Hexo</title>
+        <meta name="author" content="John Doe" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="https://static-argvchs.netlify.app/images/avatar.jpg" />
+        <script src="https://static-argvchs.netlify.app/libs/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="preconnect" href="https://static-argvchs.netlify.app" crossorigin />
+<link rel="stylesheet" href="https://static-argvchs.netlify.app/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="https://static-argvchs.netlify.app/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://static-argvchs.netlify.app/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://static-argvchs.netlify.app/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://static-argvchs.netlify.app/libs/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://static-argvchs.netlify.app/libs/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://static-argvchs.netlify.app/libs/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://static-argvchs.netlify.app/libs/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="https://static-argvchs.netlify.app/libs/animejs/3.2.1/anime.min.js"></script>
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+                <div class="article">
+    <div>
+        <h1>vue2-3</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/9/19
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>vue2-3</p>
+<span id="more"></span>
+<h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h2 id="El"><a href="#El" class="headerlink" title="El"></a>El</h2><p>用来指定Vue管理的是哪个盒子</p>
+<p><strong>date</strong>：xxx用来存取数据            如果应用于元素当中，必须用 来应用，类似if()括号里面的，但是是会表达出来的，可以进行渲染，也就是插值表达式，必须是有结果的东西。 </p>
+<p><strong>method</strong>的方法不能直接调用data中的数据，但可以用<strong>this</strong>方法（代表当前这个vue对象）来调用数据</p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p><strong>v-show</strong>  v-if    v-on ..  用在标签属性里面  </p>
+<p><strong>v-on</strong> &#x3D;”methos中的函数名”，可以用@代替，例如@click 是点击事件，也可以进行传参</p>
+<p>methods中的this &#x3D;&#x3D;容器本身</p>
+<p><strong>v-bind</strong>指令可以动态的设置html的标签属性，例如<img v-bind:src="url"></img></p>
+<p>：class可以设置标签属性</p>
+<p><strong>v-for</strong>指令(循环) 例如<li v-for="(item,index) in list(数组) "> </li>  index 不需要，也可以省略，并省略括号</p>
+<p>v-for中的key属性作用：给元素添加唯一标识 ，例如：key&#x3D;””,一般用id 作为 key(唯一)</p>
+<p>filter函数是保留满足条件的数组项，并创一个新数组</p>
+<p><strong>v-model</strong>指令（双向数据绑定）前端变，后端数据变，后端数据变，前端也变</p>
+<p>例如：&lt;input标签中 v-model&#x3D;”(data中的一个变量)”&gt;   实例：可以将用户输入的账号密码提交到后台然后进行登录判断等，或者重置按钮，来重置用户输入的账号密码</p>
+<h2 id="指令修饰符"><a href="#指令修饰符" class="headerlink" title="指令修饰符"></a>指令修饰符</h2><img src="/2023/09/19/vue23/image-20230920193659252.png" class="" title="image-20230920193659252">
+
+<h2 id="computer计算属性"><a href="#computer计算属性" class="headerlink" title="computer计算属性"></a>computer计算属性</h2><p>跟date属性是同级别的，可以用this来调用data 中的属性</p>
+<p>在标签中后面不能加（），计算属性像方法但不是方法</p>
+<p>他和method方法的区别：computer 计算属性会有缓存，除非要计算的数据发生变化，否则不会重新算，（提高了性能）</p>
+<h1 id="watch监听器"><a href="#watch监听器" class="headerlink" title="watch监听器"></a>watch监听器</h1><img src="/2023/09/19/vue23/image-20230920193408442.png" class="" title="image-20230920193408442">
+
+<img src="/2023/09/19/vue23/image-20230920185811500.png" class="" title="image-20230920185811500">
+
+<p>创建：操作date    挂载：操作dom 也就是<div>的东西</p>
+<h1 id="vue组件化开发和脚手架"><a href="#vue组件化开发和脚手架" class="headerlink" title="vue组件化开发和脚手架"></a>vue组件化开发和脚手架</h1><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>app.vue是根组件</p>
+<p>组件是类似于java的实例对象那种，在根组件中注册局部组件，相当于在java当中创建实例后，再别的类new这个实例类来用</p>
+<p>局部组件就是单独的个体，别的组件要用需要自己导入</p>
+<p>全局组件就是公共的，哪个组件想用直接用就行，不过全局组件前提需要在main.js当中进行注册</p>
+<p>一般是用局部组件，如果发现比较通用，再去main.js当中注册成全局组件</p>
+<img src="/2023/09/19/vue23/image-20230920193942896.png" class="" title="image-20230920193923267">
+
+<h2 id="组件中scoped属性"><a href="#组件中scoped属性" class="headerlink" title="组件中scoped属性"></a>组件中scoped属性</h2><p>scoped属性：用来解决不同组件当中，名字相同元素都设定了样式，则会发生冲突等等，</p>
+<p>解决：例如：<style scoped></p>
+<p>这样，当中设定的样式，则只会应用于当前组件元素，不同组件就不会发生冲突，如果不设置，那么该style元素会应用于所有在app.vue当中注册的组件</p>
+<p></style>&gt;</p>
+<img src="/2023/09/19/vue23/image-20230920193735453.png" class="" title="image-20230920193735453">
+
+<h2 id="组件当中的data"><a href="#组件当中的data" class="headerlink" title="组件当中的data"></a>组件当中的data</h2><p>在组件当中，data 是一个函数从data:  变成了data(){return{xxx:}},</p>
+<p>相当于构造函数和实例的关系（底层好像就是这个）</p>
+<h2 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h2><img src="/2023/09/19/vue23/image-20230920193809724.png" class="" title="image-20230920193809724">
+
+<p>子组件和父组件，就是a在app.vue进行注册，则app.vue就是a的父组件，父传子传送数据的话，是app.vue传过去，a还需要接受才能使用。子传父同理，但是需要主动触发事件才能发送给父组件，且父组件要对子组件传送的消息进行监听</p>
+<h2 id="props校验"><a href="#props校验" class="headerlink" title="props校验"></a>props校验</h2><img src="/2023/09/19/vue23/image-20230920190820658.png" class="" title="image-20230920190820658">
+
+<img src="/2023/09/19/vue23/image-20230920190841548.png" class="" title="image-20230920190841548">
+
+<p>子组件和父组件数据之间遵循一个原则：自己的数据自己负责，也就是说，每个组件只能修改自己data 里面的数据，如果想修改自己接受父组件的数据，需要通知父组件，让父组件修改自己的数据，再传给子组件</p>
+<img src="/2023/09/19/vue23/image-20230920190910369.png" class="" title="image-20230920190910369">
+
+<h2 id="非父子件进行通信"><a href="#非父子件进行通信" class="headerlink" title="非父子件进行通信"></a>非父子件进行通信</h2><img src="/2023/09/19/vue23/image-20230920190930362.png" class="" title="image-20230920190930362">这个适合简易的消息传递
+
+<img src="/2023/09/19/vue23/image-20230920190949791.png" class="" title="image-20230920190949791">
+
+<p>这个属于跨层级进行组件通信，推荐使用响应式的写法</p>
+<h2 id="V-model详解"><a href="#V-model详解" class="headerlink" title="V-model详解"></a>V-model详解</h2><p>V-model原理：</p>
+<img src="/2023/09/19/vue23/image-20230920191010322.png" class="" title="image-20230920191010322">
+
+<img src="/2023/09/19/vue23/image-20230920191024643.png" class="" title="image-20230920191024643">
+
+<p>（e.target 是拿到了当前元素，后面加.来获得你想要的元素属性     $event是事件的形参）</p>
+<p>子组件是不能用v-model的 ，因为子组件不能直接改变父组件的值，<strong>但是父组件是可以用的</strong></p>
+<p><strong>所以</strong><img src="/2023/09/19/vue23/image-20230920191047155.png" class="" title="image-20230920191047155"></p>
+<p><strong>如果父组件用v-model的话，由于v-model的底层是由value+@input 组成的，所以子组件当中，props接受的参数名字要改成value,并且子组件发送的$emit参数当中，名字也要改成input</strong></p>
+<h2 id="sync修饰符"><a href="#sync修饰符" class="headerlink" title="sync修饰符"></a>sync修饰符</h2><p>白雪，<img src="/2023/09/19/vue23/image-20230920191142988.png" class="" title="image-20230920191142988"></p>
+<p>这个可以让上一个 的子组件props接受的参数名字改成自定义的，不再是value ，但是发送的$emit参数当中，名字要改成@update:参数，形参</p>
+<h2 id="ref和-ref获取dom和组件实例"><a href="#ref和-ref获取dom和组件实例" class="headerlink" title="ref和$ref获取dom和组件实例"></a>ref和$ref获取dom和组件实例</h2><img src="/2023/09/19/vue23/image-20230920192413604.png" class="" title="image-20230920192413604">
+
+
+
+<p>这个是在自己组件的元素添加ref属性，自己组件获取目标标签，（防止查找到重名的组件，会不是目标组件）</p>
+<img src="/2023/09/19/vue23/image-20230920191233559.png" class="" title="image-20230920191233559">
+
+<p>这个是在父组件中的注册组件中添加ref属性，在父组件来调用子组件的方法</p>
+<h2 id="vue异步更新和-nextTick"><a href="#vue异步更新和-nextTick" class="headerlink" title="vue异步更新和$nextTick"></a>vue异步更新和$nextTick</h2><p>由于vue中dom更新是异步的，所有dom组件在页面更新都需要代码跑完才会更新，所以一些执行更新dom后的方法会找不到更新后的dom，所以$nextTick就可以在dom更新后再执行方法代码</p>
+<img src="/2023/09/19/vue23/image-20230920192502345.png" class="" title="image-20230920192502345">
+
+<h1 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h1><p>注：全局注册在main.js写，局部注册在本组件使用   （类似封装函数）</p>
+<img src="/2023/09/19/vue23/image-20230920192533071.png" class="" title="image-20230920192533071">
+
+<img src="/2023/09/19/vue23/image-20230920192635161.png" class="" title="image-20230920192635161">
+
+<p>binding.value相当于元素的参数给你这个封装函数了，然后封装函数（指令）根据这个参数再inserted或update进行操作 </p>
+<h2 id="插槽slot占位符"><a href="#插槽slot占位符" class="headerlink" title="插槽slot占位符"></a>插槽slot占位符<img src="/2023/09/19/vue23/image-20230920192707314.png" class="" title="image-20230920192707314"></h2><img src="/2023/09/19/vue23/image-20230920192726971.png" class="" title="image-20230920192726971">
+
+<img src="/2023/09/19/vue23/image-20230920191504818.png" class="" title="image-20230920191504818">
+
+<h2 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h2><img src="/2023/09/19/vue23/image-20230920191529607.png" class="" title="image-20230920191529607">
+
+<p>用来传子组件的元素属性作为参数给父组件</p>
+<h1 id="单页应用程序-》路由"><a href="#单页应用程序-》路由" class="headerlink" title="单页应用程序&#x3D;》路由"></a>单页应用程序&#x3D;》<strong>路由</strong></h1><p>单页面程序：所有功能在一个html上实现</p>
+<p>router-view是用来展示各个组件里的具体内容的</p>
+<p>路由就是用来应用于单页应用程序</p>
+<img src="/2023/09/19/vue23/image-20230920191558921.png" class="" title="image-20230920191558921">
+
+<p>复用组件：放在view文件夹中    页面组件：放在components 文件夹中</p>
+<p>routes:[]用来放规则，类似配置router</p>
+<h2 id="路由单独作为模块"><a href="#路由单独作为模块" class="headerlink" title="路由单独作为模块"></a>路由单独作为模块</h2><p>（拆分组件，利于维护）</p>
+<p>单独做个router文件夹，做个xxx.js ，里面进行路由配置操作（记得导入vue不然创建不了router），然后用export default 导出router ,然后main.js就可以导入到</p>
+<p>注：路径可以用绝对路径 @&#x3D;src  例：‘@&#x2F;views&#x2F;Find’ 就直接找到Find组件了</p>
+<h2 id="router-link"><a href="#router-link" class="headerlink" title="router-link"></a>router-link</h2><p>用他作声明式导航，可以代替a标签作路由导航，会再带两个class属性，可以用来高亮，一个是用来模糊匹配（大部分用的多），一个用来精确匹配</p>
+<p>可以在构造router里面自定义高亮类名</p>
+<img src="/2023/09/19/vue23/image-20230920191611287.png" class="" title="image-20230920191611287">
+
+<h3 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h3><img src="/2023/09/19/vue23/image-20230920191642214.png" class="" title="image-20230920191642214">
+
+<h3 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h3><p>在规则里面配置重定向，当路径匹配到具体的一个路径，就会重定向到另一个具体的路径页面</p>
+<img src="/2023/09/19/vue23/image-20230920191656600.png" class="" title="image-20230920191656600">
+
+<p>路由规则里可以用path:’&#x2F;*’来处理匹配不到路径时候的情况，例如加个展示404的组件</p>
+<p>规则里可以切换hash路由和history路由（上线后需要进行后台配置） </p>
+<h2 id="路由导航传参"><a href="#路由导航传参" class="headerlink" title="路由导航传参"></a>路由导航传参</h2>
+
+<img src="/2023/09/19/vue23/image-20230920191743180.png" class="" title="image-20230920191743180">
+
+<p>name命名一般用于名字路径名字过长</p>
+<h2 id="组件缓存"><a href="#组件缓存" class="headerlink" title="组件缓存"></a>组件缓存</h2><img src="/2023/09/19/vue23/image-20230920191806674.png" class="" title="image-20230920191806674">
+
+<h2 id="二级路由"><a href="#二级路由" class="headerlink" title="二级路由"></a>二级路由</h2><p>二级路由，需要再父路由规则里配置children属性，里面存放子路由</p>
+<p>并且在父路由组件里添加router-view来让子路由有出口显示</p>
+<h3 id="代码规则规范"><a href="#代码规则规范" class="headerlink" title="代码规则规范"></a>代码规则规范</h3><img src="/2023/09/19/vue23/image-20230920191827145.png" class="" title="image-20230920191827145">
+
+<h2 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h2><p>仓库在store文件夹中的index.js中注册，在main.js中挂载导入。</p>
+<p>仓库里的数据不能直接修改  mutations 用来提供方法来修改仓库数据（算底下俩的原生）在index.js中写</p>
+<p>mapState 可以直接映射出数据（属性）并使用</p>
+<p>mapMutations可以直接成映射方法并使用</p>
+<p>getters类似计算属性，也在index.js中写方法，在组件中通过mapGetters映射数据（属性）</p>
+<h2 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h2><p>子模块也是注册在index.js当中，各司其职</p>
+<img src="/2023/09/19/vue23/image-20230920191855646.png" class="" title="image-20230920191855646">
+
+<p>子模块的挂载都需要开启自己的命名空间  ：  namespaced:ture在导出的export default{}</p>
+<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>setup函数当中没有this </p>
+<h2 id="vue3的生命周期"><a href="#vue3的生命周期" class="headerlink" title="vue3的生命周期"></a>vue3的生命周期</h2><img src="/2023/09/19/vue23/image-20230920184418078.png" class="" title="image-20230920184418078">
+
+<h2 id="父子通信"><a href="#父子通信" class="headerlink" title="父子通信"></a>父子通信</h2><p>（父组件导入子组件的局部组件，不用声明就可以直接使用）</p>
+<p>父传子：由于子组件写了setup 所以无法配置props选项，所以子组件需要用“编译器宏”函数来接受数据</p>
+<img src="/2023/09/19/vue23/image-20230920195454877.png" class="" title="image-20230920195454877">
+
+<p>子传父：也是需要用“编译器宏”来自定义声明emit方法用来把数据提交到父组件当中，父组件再绑定这个自定义事件</p>
+<img src="/2023/09/19/vue23/image-20230920200243899.png" class="" title="image-20230920200243899">
+
+<h2 id="模板引用"><a href="#模板引用" class="headerlink" title="模板引用"></a>模板引用</h2><p>可以获取本组件dom也可以获取子组件</p>
+<p>(子组件内部属性和方法是不开放给父组件的 ，需要编译宏来指定)</p>
+<img src="/2023/09/19/vue23/image-20230921113944759.png" class="" title="image-20230921113944759">
+
+<p>步骤：需要先生成一个ref对象，在通过ref标识绑定ref对象到dom标签</p>
+<h2 id="跨层传输数据"><a href="#跨层传输数据" class="headerlink" title="跨层传输数据"></a>跨层传输数据</h2><p>可以传普通数据，响应式数据，以及方法（底层组件可以用这个来改变父组件的数据，但不能直接改变）</p>
+<p>用provide（‘xx’，xx）传送 ，inject(‘xx’）接受</p>
+<!--more-->
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        <script>
+            console.info("Welcome to Argvchs' blog!");
+            if (!window.hasOwnProperty("ontouchstart")) {
+                let html = '<canvas id="fireworks" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"></canvas><script src="https://static-argvchs.netlify.app/js/fireworks.min.js"><\/script>';
+                document.body.append(document.createRange().createContextualFragment(html));
+            }
+        </script>
+        
+        
+<script
+    src="https://giscus.app/client.js"
+    data-repo="argvchs/giscus-comments"
+    data-repo-id="R_kgDOI_uC-w"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOI_uC-84CUToF"
+    data-mapping="pathname"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="https://static-argvchs.netlify.app/css/giscus.css"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
+        
+    </body>
+</html>
