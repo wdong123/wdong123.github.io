@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Linux | Hexo</title>
+        <title>Archives | Hexo</title>
         <meta name="author" content="John Doe" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -37,9 +37,7 @@
 
 
 
-
-
-
+<script src="/js/lib/search.js"></script>
 
 
 
@@ -152,35 +150,84 @@
 </transition>
 
             <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-                <div class="article">
-    <div>
-        <h1>Linux</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/8
-        </span>
+                
+<div id="archives">
+    
+    <input id="search-bar" class="input" placeholder="搜索" v-model="rawSearch" />
+    
+    <div id="timeline-wrap" ref="timeline">
         
+        <div class="timeline" data-title="vue2-3">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2023/9/19</div>
+                <a href="/2023/09/19/vue23/">
+                    <h3>vue2-3</h3>
+                </a>
+                <div class="info">
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="第一篇">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2023/9/23</div>
+                <a href="/2023/09/23/%E7%AC%AC%E4%B8%80%E7%AF%87/">
+                    <h3>第一篇</h3>
+                </a>
+                <div class="info">
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="git">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2023/9/24</div>
+                <a href="/2023/09/24/git/">
+                    <h3>git</h3>
+                </a>
+                <div class="info">
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="linux">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2023/10/8</div>
+                <a href="/2023/10/08/linux/">
+                    <h3>linux</h3>
+                </a>
+                <div class="info">
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="docker">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2023/10/11</div>
+                <a href="/2023/10/11/docker/">
+                    <h3>docker</h3>
+                </a>
+                <div class="info">
+                    
+                    
+                </div>
+            </div>
+        </div>
         
     </div>
-    
-    <div class="content" v-pre>
-        
-    </div>
-    
-    
-    
-    
-    <div id="comment">
-        <div id="giscus-container" class="giscus"></div>
-    </div>
-    
-    
-    
-    
 </div>
 
                 <footer id="footer">
@@ -218,29 +265,6 @@
                 document.body.append(document.createRange().createContextualFragment(html));
             }
         </script>
-        
-        
-<script
-    src="https://giscus.app/client.js"
-    data-repo="argvchs/giscus-comments"
-    data-repo-id="R_kgDOI_uC-w"
-    data-category="Announcements"
-    data-category-id="DIC_kwDOI_uC-84CUToF"
-    data-mapping="pathname"
-    data-strict="1"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="https://static-argvchs.netlify.app/css/giscus.css"
-    data-lang="zh-CN"
-    crossorigin
-    async
-></script>
-
-
-
-
-
         
     </body>
 </html>

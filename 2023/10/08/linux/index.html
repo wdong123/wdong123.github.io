@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Archives | Hexo</title>
+        <title>linux | Hexo</title>
         <meta name="author" content="John Doe" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -37,7 +37,9 @@
 
 
 
-<script src="/js/lib/search.js"></script>
+
+
+
 
 
 
@@ -150,84 +152,52 @@
 </transition>
 
             <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-                
-<div id="archives">
-    
-    <input id="search-bar" class="input" placeholder="搜索" v-model="rawSearch" />
-    
-    <div id="timeline-wrap" ref="timeline">
+                <div class="article">
+    <div>
+        <h1>linux</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/8
+        </span>
         
-        <div class="timeline" data-title="vue2-3">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/9/19</div>
-                <a href="/2023/09/19/vue23/">
-                    <h3>vue2-3</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="第一篇">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/9/23</div>
-                <a href="/2023/09/23/%E7%AC%AC%E4%B8%80%E7%AF%87/">
-                    <h3>第一篇</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="git">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/9/24</div>
-                <a href="/2023/09/24/git/">
-                    <h3>git</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="linux">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/8</div>
-                <a href="/2023/10/08/linux/">
-                    <h3>linux</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="docker">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/11</div>
-                <a href="/2023/10/11/docker/">
-                    <h3>docker</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
         
     </div>
+    
+    <div class="content" v-pre>
+        <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>vm虚拟软件里安装linux系统</p>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><img src="/2023/10/08/linux/image-20231009160513025.png" class="" title="image-20231009160513025">
+
+<p>cat:查看某一个文件的内容</p>
+<p>more:以分页的形式显示文件内容</p>
+<img src="/2023/10/08/linux/image-20231009165205466.png" class="" title="image-20231009165205466">
+
+<p>tail:查询文件末尾的内容  ，可以加-f 来动态获取</p>
+<p>rmdir:删除必须是空目录的  rm:删除文件或者目录 可以加-f无须确认  加-r递归删除</p>
+<p>mv是移动或者改名，cp是复制文件或者目录</p>
+<p>打包命令：tar:</p>
+<p>cvf打包，xvf解包，zcvf打压缩包，zxvf解压缩包</p>
+<img src="/2023/10/08/linux/image-20231009183015146.png" class="" title="image-20231009183015146">
+
+<p>vim类似文本编辑，具有三种模式  vim …进入命令模式  i 进入插入模式  :进行底行模式可以进行保存退出</p>
+<p>find:查找文件位置  不打开          grep:查找文件中的指定文本内容，区分大小写</p>
+<p>ps：查看进程服务</p>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
 </div>
 
                 <footer id="footer">
@@ -265,6 +235,29 @@
                 document.body.append(document.createRange().createContextualFragment(html));
             }
         </script>
+        
+        
+<script
+    src="https://giscus.app/client.js"
+    data-repo="argvchs/giscus-comments"
+    data-repo-id="R_kgDOI_uC-w"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOI_uC-84CUToF"
+    data-mapping="pathname"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="https://static-argvchs.netlify.app/css/giscus.css"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
         
     </body>
 </html>
